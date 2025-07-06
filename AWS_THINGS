@@ -1,0 +1,52 @@
+
+
+
+AWS _S3 :
+
+.> When you create a bucket in cloud storage (like AWS S3), one important concept is who owns the objects (files) that are uploaded into
+the bucket—this is controlled by ACL (Access Control List) settings and ownership options.
+
+.> By default, the uploader becomes the object owner — even if the bucket belongs to someone else (like in team projects, or uploads from different accounts).
+
+What is ACL (Access Control List)?
+ACLs are a legacy way to manage permissions in buckets and objects. It allows you to set individual read/write permissions for users or groups on a per-object or per-bucket basis.
+
+
+ ACLs Enabled (Object ACLs: Enabled)
+Every object has its own ACL.
+The person/account that uploads the object is the owner of that object.
+Ownership and permissions are controlled per object.
+You can grant read/write access using the object's ACL settings.
+🟡 Example:
+If User A creates a bucket and User B uploads a file, then User B owns the object. Unless User B explicitly gives permission via ACL, User A (bucket owner) cannot access or control it.
+
+
+ ACLs Disabled (Object ACLs: Disabled — Recommended)
+All objects uploaded to the bucket are automatically owned by the bucket owner (regardless of who uploads them).
+You cannot set per-object permissions via ACL.
+IAM policies are used instead for permissions (more secure and recommended).
+🟢 Example:
+User A owns the bucket. If User B uploads a file, the object is still owned by User A. No conflict in access or permission happens.
+
+
+Billing for the AWS S3 BUcket:
+------------------------------------- >
+
+. PUT Object ACL / GET Object ACL / DELETE Object ACL
+These are considered API calls.
+
+AWS S3 charges per 1,000 requests, including:
+PutObjectAcl
+GetObjectAcl
+DeleteObjectAcl
+
+Example: If you update or retrieve ACLs for many objects (especially in automation), you are billed per request.
+
+2. Cross-Account Uploads
+If an object is uploaded by another AWS account and ACLs are used to grant access:
+Data transfer or replication costs might be incurred depending on how access is shared or replicated.
+
+3. Public Access (via ACL)
+If ACLs are used to make objects public (e.g., everyone can read), and many people download them:
+You may get charged for data transfer (outbound).
+
