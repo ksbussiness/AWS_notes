@@ -54,6 +54,9 @@ You may get charged for data transfer (outbound).
 What is “Block Public Access” in Amazon S3? :
 -------------------------------------------------------- >
 
+.> Amazon S3 gives you the option to prevent your files from being seen by anyone on the internet (the public) — even by mistake.
+If Block Public Access is ON, then no one outside your AWS account can view, download, or access your files, no matter what other permissions are set.
+
 .> "Block Public Access" is a security setting in Amazon S3 that controls whether objects (files) in a bucket can be accessed publicly by anyone on the internet.
 .> When Block Public Access is enabled, it prevents anyone outside your AWS account from accessing the bucket or objects — even if someone accidentally 
 tries to make them public using ACLs or bucket policies.
@@ -61,3 +64,12 @@ tries to make them public using ACLs or bucket policies.
 # .> What Does "Block all public access: Enabled" Mean?
 It means:
 "Nobody from the public internet can access this bucket or any object in it — no matter what ACLs or policies exist.
+
+
+When Should You Turn OFF "Block All Public Access"?
+Only if:
+You are hosting public files or a website
+You fully understand the security risks
+You configure bucket policies carefully
+You possibly use CloudFront or signed URLs to restrict public access indirectly
+
