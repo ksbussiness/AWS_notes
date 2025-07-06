@@ -50,3 +50,14 @@ Data transfer or replication costs might be incurred depending on how access is 
 If ACLs are used to make objects public (e.g., everyone can read), and many people download them:
 You may get charged for data transfer (outbound).
 
+
+What is “Block Public Access” in Amazon S3? :
+-------------------------------------------------------- >
+
+.> "Block Public Access" is a security setting in Amazon S3 that controls whether objects (files) in a bucket can be accessed publicly by anyone on the internet.
+.> When Block Public Access is enabled, it prevents anyone outside your AWS account from accessing the bucket or objects — even if someone accidentally 
+tries to make them public using ACLs or bucket policies.
+
+# .> What Does "Block all public access: Enabled" Mean?
+It means:
+"Nobody from the public internet can access this bucket or any object in it — no matter what ACLs or policies exist.
